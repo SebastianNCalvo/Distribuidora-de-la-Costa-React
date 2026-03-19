@@ -2,23 +2,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px;
-    /* Eliminamos el borde gris que la hace ver vieja */
-    border: none; 
-    border-radius: 22px;
-    /* Sombra mucho más suave y extendida */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    width: 260px; /* Un poco más ancha para que respire el contenido */
+    padding: 30px; /* Más espacio interno */
+    border-radius: 24px;
     background-color: white;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+    /* Usamos max-width en lugar de width fijo para que sea flexible */
+    max-width: 320px; 
+    width: 100%;
+    margin: 0 auto; /* Centra la card dentro de su celda de la grilla */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s ease;
 }
 
 .item-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .item-card-img {
@@ -38,10 +35,12 @@
     font-size: 1.1rem;
     font-weight: 600;
     color: #1d1d1f;
-    margin-top: 20px;
+    margin: 15px 0;
+    line-height: 1.2;
     text-align: center;
-    line-height: 1.3;
-    min-height: 2.6rem; /* Mantiene la alineación si el título tiene 2 líneas */
+    /* Si el título es muy largo, esto ayuda a que no deforme la card */
+    display: -webkit-box;
+    overflow: hidden;
 }
 
 .item-card-price {
