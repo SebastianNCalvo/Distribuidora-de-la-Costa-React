@@ -1,8 +1,57 @@
+/* Contenedor principal de la sección */
+.item-list-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Título con peso visual Apple (San Francisco style) */
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: #1d1d1f;
+    margin-bottom: 30px;
+    text-align: left; /* Alineación a la izquierda para look más editorial */
+}
+
+/* La Grilla de Productos */
 .productos {
+    display: grid;
+    /* Esto es vital: permite que entren tantas columnas como el ancho lo permita */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 30px; 
+    width: 100%; /* Asegura que use todo el espacio del navegador */
+    max-width: 1200px; /* Pero que no se deforme en monitores ultra-wide */
+    margin: 40px auto; /* Centra el bloque de la grilla */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Estilo para las Cards (suponiendo que Item.jsx renderiza un contenedor con clase .item-card) */
+/* Si tu componente Item tiene otra clase, aplícalo ahí */
+.item-card {
+    background-color: #ffffff;
+    border-radius: 18px; /* Bordes muy redondeados característicos */
+    padding: 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Animación fluida */
+    border: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    column-gap: 5px;
-    row-gap: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Efecto Hover sutil (Elevación) */
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+/* Mensaje de carga con estilo limpio */
+.loading-text {
+    font-size: 18px;
+    color: #86868b;
+    margin-top: 50px;
+    font-weight: 400;
 }

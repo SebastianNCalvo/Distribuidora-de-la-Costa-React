@@ -27,17 +27,14 @@ export default function ItemListContainer( props ){
   }, [categParam])
   
   return (
-    <div>
-      <h2>{props.greeting}</h2>
-      <div>
-        <h2>Nuestros productos</h2>
-        {products.length === 0 ? "Cargando..." : ""}
-        <div className='productos'>
-          {
-            products.map(product => <Item key={product.id} {...product}></Item>)
-          }
-        </div>       
+  <div className="item-list-container">
+    <h2>{props.greeting || "Nuestros productos"}</h2>
+    {products.length === 0 ? 
+      <p className="loading-text">Cargando catálogo...</p> : 
+      <div className='productos'>
+        {products.map(product => <Item key={product.id} {...product} />)}
       </div>
-    </div>
-  )
+    }
+  </div>
+)
 }
